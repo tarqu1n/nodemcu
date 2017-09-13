@@ -1,3 +1,5 @@
+'use strict';
+
 class OpenWeatherMapApi {
 	constructor(opts) {
 		if (!opts.apiKey) {
