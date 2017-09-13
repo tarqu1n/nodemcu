@@ -17,7 +17,16 @@ var OpenWeatherMapApi = function () {
 	_createClass(OpenWeatherMapApi, [{
 		key: 'request',
 		value: function request() {
-			console.log("im totally making a request");
+			require("https").get("https://api.openweathermap.org/data/2.5/weather?q=London", function (res) {
+				console.log("here");
+				var contents = "";
+				res.on('data', function (data) {
+					contents += data;
+				});
+				res.on('close', function () {
+					console.log(contents);
+				});
+			});
 		}
 	}]);
 
